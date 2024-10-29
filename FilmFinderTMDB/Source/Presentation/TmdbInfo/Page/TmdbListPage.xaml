@@ -50,9 +50,9 @@
                                          Text="{Binding TmdbSearchBarEntry}">
                             <control:BorderLessEntry.Behaviors>
                                 <toolkit:EventToCommandBehavior
-                             EventName="TextChanged"
-                             Command="{Binding Path=BindingContext.TmdbSearchBarTextChangedCommand, Source={Reference TmdbSearchBar}}"
-                             CommandParameter="{Binding .}"/>
+                                         EventName="TextChanged"
+                                         Command="{Binding Path=BindingContext.TmdbSearchBarTextChangedCommand, Source={Reference TmdbSearchBar}}"
+                                         CommandParameter="{Binding .}"/>
                             </control:BorderLessEntry.Behaviors>
                         </control:BorderLessEntry>
                         <ImageButton Grid.Row="0" Grid.Column="2"
@@ -84,8 +84,8 @@
                         </ImageButton.Behaviors>
                     </ImageButton>
                     <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding ScanButtonCommand}"/>
-                            </StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ScanButtonCommand}"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
             </Grid>
         </Border>
@@ -108,10 +108,10 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Movie">
                     <Grid Margin="0" Padding="0,2,0,2"
-                  ColumnDefinitions="*"
-                  RowDefinitions="140"
-                  HorizontalOptions="FillAndExpand"
-                  RowSpacing="{OnPlatform Android='5', iOS='7'}" >
+                          ColumnDefinitions="*"
+                          RowDefinitions="140"
+                          HorizontalOptions="FillAndExpand"
+                          RowSpacing="{OnPlatform Android='5', iOS='7'}" >
                         <Border Margin="0" Padding="0" BackgroundColor="White" StrokeThickness="1"
                         VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand">
@@ -131,8 +131,8 @@
                                              Spacing="5" Padding="10"
                                              VerticalOptions="StartAndExpand">
                                     <Label Text="{Binding Title}" FontAttributes="Bold" FontFamily="Arial"
-                                   FontSize="Medium" TextColor="White"
-                                   Style="{StaticResource SmallBlueLabelStyle}" />
+                                           FontSize="Medium" TextColor="White"
+                                           Style="{StaticResource SmallBlueLabelStyle}" />
                                     <Label Text="{Binding ReleaseDateInfo}" TextColor="White" 
                                     Style="{StaticResource SmallBlueLabelStyle}" />
                                     <Label Text="{Binding GenersInfo}" TextColor="White"

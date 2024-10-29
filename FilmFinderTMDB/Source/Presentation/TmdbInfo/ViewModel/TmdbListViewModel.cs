@@ -93,7 +93,7 @@ namespace FilmFinderTMDB.Source.Presentation.TmdbInfo.ViewModel
         }
 
         [RelayCommand]
-        private async void TmdbSearchBarTextChanged(object searchText)
+        private async Task TmdbSearchBarTextChanged(object searchText)
         {
             try
             {
@@ -182,7 +182,7 @@ namespace FilmFinderTMDB.Source.Presentation.TmdbInfo.ViewModel
         }
 
         /// <summary>
-        /// Delete Tmdb Name Entry
+        /// Delete Tmdb SearchBar Entry
         /// </summary>
         /// <param name="sender"></param>
         [RelayCommand]

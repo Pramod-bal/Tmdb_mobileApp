@@ -124,8 +124,6 @@
 	  <Folder Include="Source\Presentation\" />
 	  <Folder Include="Source\Data\" />
 	  <Folder Include="Source\Data\Model\" />
-	  <Folder Include="Source\Presentation\Tmdb\Page\" />
-	  <Folder Include="Source\Presentation\Tmdb\ViewModel\" />
 	  <Folder Include="Source\Services\" />
 	  <Folder Include="Source\Presentation\NavigationService\" />
 	  <Folder Include="Source\Presentation\Controls\" />

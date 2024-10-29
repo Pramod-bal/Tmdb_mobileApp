@@ -23,7 +23,6 @@
                 </Image.Shadow>
             </Image>
 
-
             <Border Margin="0" Padding="0" BackgroundColor="White" StrokeThickness="1"
                         VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand">
@@ -64,19 +63,19 @@
                             </HorizontalStackLayout>
                         </Border>
                         <Border Margin="0" Padding="8,5" BackgroundColor="White" StrokeThickness="1"
-                                    VerticalOptions="FillAndExpand"
-                                    HorizontalOptions="FillAndExpand">
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="0,20,20,0" />
                             </Border.StrokeShape>
                             <VerticalStackLayout>
                                 <Label Text="OverView : " FontFamily="Arial"
-                                   TextColor="{StaticResource Magenta}"
-                                   FontSize="Small" FontAttributes="Bold" 
-                                   Style="{StaticResource SmallBlueLabelStyle}" />
+                                       TextColor="{StaticResource Magenta}"
+                                       FontSize="Small" FontAttributes="Bold" 
+                                       Style="{StaticResource SmallBlueLabelStyle}" />
                                 <Label Text="{Binding OverView}" TextColor="{StaticResource MidnightBlue}"
-                                   FontSize="Micro" FontAttributes="Bold"
-                                   Style="{StaticResource SmallBlueLabelStyle}" />
+                                       FontSize="Micro" FontAttributes="Bold"
+                                       Style="{StaticResource SmallBlueLabelStyle}" />
                             </VerticalStackLayout>
 
                         </Border>
@@ -99,15 +98,15 @@
             </Border>
 
             <Border Margin="0" Padding="0" BackgroundColor="White" StrokeThickness="1"
-        VerticalOptions="FillAndExpand"
-        HorizontalOptions="FillAndExpand">
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="0,0,0,0" />
                 </Border.StrokeShape>
                 <VerticalStackLayout Padding="10">
                     <Label Text="Cast" TextColor="{StaticResource Magenta}" FontFamily="Arial"
-               FontSize="Medium" FontAttributes="Bold"
-               Style="{StaticResource SmallBlueLabelStyle}" />
+                           FontSize="Medium" FontAttributes="Bold"
+                           Style="{StaticResource SmallBlueLabelStyle}" />
                     <CollectionView x:Name="CastList" HeightRequest="190"
                         Grid.Row="1" Grid.Column="0"
                         Margin="6,8,6,8"
@@ -149,9 +148,9 @@
                                     </Frame>
                                     <VerticalStackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Start" Padding="0,10">
                                         <Label Text="{Binding Name}" TextColor="{StaticResource White}" FontFamily="Arial"
-                                   FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
+                                               FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
                                         <Label Text="{Binding Character}" TextColor="{StaticResource White}"
-                                   FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
+                                               FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
                             </DataTemplate>
@@ -195,7 +194,7 @@
                                     VerticalOptions="FillAndExpand">
                         <CollectionView.EmptyView>
                             <StackLayout VerticalOptions="Center" 
-                     HorizontalOptions="CenterAndExpand">
+                                         HorizontalOptions="CenterAndExpand">
                                 <Label Text="No crews found"
                                        Style="{StaticResource SmallBlueLabelStyle}"
                                        FontAttributes="Bold" TextColor="White"
@@ -210,23 +209,23 @@
                                       HorizontalOptions="FillAndExpand"
                                       ColumnSpacing="10"
                                       RowSpacing="{OnPlatform Android='5', iOS='7'}" >
-                                                    <Frame Grid.Row="0" Grid.Column="0" 
-                       WidthRequest="60" HeightRequest="60"
-                       CornerRadius="30">
-                    <Image Aspect="Fill" WidthRequest="60" HeightRequest="60">
-                        <Image.Source>
-                            <UriImageSource Uri="{Binding ProfilePathImageUrl}"
+                                    <Frame Grid.Row="0" Grid.Column="0" 
+                                           WidthRequest="60" HeightRequest="60"
+                                           CornerRadius="30">
+                                        <Image Aspect="Fill" WidthRequest="60" HeightRequest="60">
+                                            <Image.Source>
+                                                <UriImageSource Uri="{Binding ProfilePathImageUrl}"
                                             CacheValidity="10:00:00:00"
                                             CachingEnabled="True"/>
-                        </Image.Source>
-                    </Image>
-                </Frame>
+                                            </Image.Source>
+                                        </Image>
+                                    </Frame>
 
                                     <VerticalStackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Start" Padding="0,10">
                                         <Label Text="{Binding Name}" TextColor="{StaticResource White}" FontFamily="Arial"
-                                   FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
+                                                FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
                                         <Label Text="{Binding Job}" TextColor="{StaticResource White}"
-                                   FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
+                                               FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" />
                                     </VerticalStackLayout>
                                 </Grid>
                             </DataTemplate>
@@ -248,8 +247,6 @@
                 Opacity="0.6" />
                 </Border.Shadow>
             </Border>
-
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
