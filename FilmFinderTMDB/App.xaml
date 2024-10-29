@@ -1,0 +1,87 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FilmFinderTMDB"
+             x:Class="FilmFinderTMDB.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="local:AppShell">
+                <!--  Nav bar  -->
+                <Setter Property="BackgroundColor" Value="{StaticResource MidnightBlue}" />
+                <!--  Toolbar items  -->
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource White}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="Gray" />
+                <!--  Selected tab bar item  -->
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Magenta}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Gray950}" />
+                <Setter Property="Shell.FlyoutBackground" Value="{StaticResource MidnightBlue}" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+            </Style>
+
+            <ControlTemplate x:Key="FullLoadingScreenTemplate">
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All"
+                          BackgroundColor="Transparent"
+                          ColumnDefinitions="*"
+                          HorizontalOptions="FillAndExpand"
+                          RowDefinitions="*"
+                          VerticalOptions="FillAndExpand">
+                        <ContentPresenter AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                        <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     BackgroundColor="#80000000"
+                                     HorizontalOptions="FillAndExpand"
+                                     IsVisible="{TemplateBinding BindingContext.IsBusy}"
+                                     VerticalOptions="FillAndExpand">
+                            <ActivityIndicator AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                               AbsoluteLayout.LayoutFlags="All"
+                                               HeightRequest="50"
+                                               WidthRequest="50"
+                                               HorizontalOptions="Center"
+                                               IsRunning="True"
+                                               IsVisible="True"
+                                               VerticalOptions="Center"
+                                               Color="{StaticResource Magenta}" />
+                        </ContentView>
+                    </Grid>
+                </AbsoluteLayout>
+            </ControlTemplate>
+
+            <Style x:Key="SmallBlueLabelStyle" TargetType="Label" >
+                <Setter Property="TextColor" Value="{StaticResource MidnightBlue}" />
+                <Setter Property="FontSize" Value="14" />
+                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="ImageBlueButtonStyle" TargetType="Border" >
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="WidthRequest" Value="35" />
+            </Style>
+            <Style x:Key="ImageButtonStyle" TargetType="Border" >
+                <Setter Property="HeightRequest" Value="22" />
+                <Setter Property="WidthRequest" Value="22" />
+            </Style>
+
+             <Style x:Key="BorderLessEntryStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="PlaceholderColor" Value="Gray" />
+                <Setter Property="Margin" Value="15,0,5,0" />
+                <Setter Property="HeightRequest" Value="40" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+

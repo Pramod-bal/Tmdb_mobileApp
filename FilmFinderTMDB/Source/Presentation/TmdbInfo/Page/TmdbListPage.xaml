@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:control="clr-namespace:FilmFinderTMDB.Source.Presentation.Controls"
+             xmlns:viewmodel="clr-namespace:FilmFinderTMDB.Source.Presentation.TmdbInfo.ViewModel"
+             x:DataType="viewmodel:TmdbListViewModel"
+             xmlns:models="clr-namespace:FilmFinderTMDB.Source.Data.Model"
+             x:Class="FilmFinderTMDB.Source.Presentation.TmdbInfo.Page.TmdbListPage"
+             ControlTemplate="{StaticResource FullLoadingScreenTemplate}"
+             Background="WhiteSmoke"
+             Title="Search Movie">
+
+    <ContentPage.Behaviors>
+        <mct:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <Grid RowDefinitions="auto, *" ColumnDefinitions="*" RowSpacing="10"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Border Grid.Row="0" Grid.Column="0" Margin="6,5,6,0" HorizontalOptions="FillAndExpand"
+        BackgroundColor="{StaticResource MidnightBlue}" StrokeThickness="1" Padding="5">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <Grid RowDefinitions="auto" ColumnDefinitions="*, auto"
+          ColumnSpacing="8" Padding="3,0,5,0" VerticalOptions="Center">
+                <Frame x:Name="CustomizeSearchBar" VerticalOptions="Center" Background="WhiteSmoke"
+               HeightRequest="40" Margin="0" Padding="0,0,0,0">
+                    <Grid RowDefinitions="auto" ColumnDefinitions="auto,*,auto">
+                        <ImageButton Grid.Row="0" Grid.Column="0"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             Margin="7,0,0,0"
+                             Source="search" Aspect="AspectFill"
+                             Scale="{OnIdiom Phone={OnPlatform iOS=0.4, Android=0.9}}"
+                             Style="{StaticResource ImageButtonStyle}">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource MidnightBlue}" />
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                        <control:BorderLessEntry x:Name="TmdbSearchBar" Grid.Row="0" Grid.Column="1"
+                                         Keyboard="Text" TextColor="{StaticResource MidnightBlue}"
+                                         FontAttributes="Bold"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Center"
+                                         Style="{StaticResource BorderLessEntryStyle}"
+                                         Placeholder="Search the movie" 
+                                         MaxLength="50"
+                                         Text="{Binding TmdbSearchBarEntry}">
+                            <control:BorderLessEntry.Behaviors>
+                                <toolkit:EventToCommandBehavior
+                             EventName="TextChanged"
+                             Command="{Binding Path=BindingContext.TmdbSearchBarTextChangedCommand, Source={Reference TmdbSearchBar}}"
+                             CommandParameter="{Binding .}"/>
+                            </control:BorderLessEntry.Behaviors>
+                        </control:BorderLessEntry>
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                             Margin="{OnPlatform Android='0,0,10,0', iOS='0,0,5,0'}"
+                             IsVisible="{Binding IsSearchCrossButtonEnable}"
+                             HorizontalOptions="Start" VerticalOptions="Center"
+                             Source="searchcross" Aspect="AspectFill"
+                             Scale="0.9"
+                             Command="{Binding DeleteTmdbSearchBarEntryCommand}"
+                             Style="{StaticResource ImageButtonStyle}">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource MidnightBlue}" />
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                    </Grid>
+                </Frame>
+
+                <StackLayout Grid.Row="0" Grid.Column="1" 
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand">
+                    <ImageButton Grid.Row="0" Grid.Column="1"
+                         HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                         Source="scan" Aspect="AspectFill"
+                         Scale="0.9" HeightRequest="30" WidthRequest="30"
+                         Command="{Binding ScanButtonCommand}"
+                         Style="{StaticResource ImageButtonStyle}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ScanButtonCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <CollectionView x:Name="MovieList"
+                Grid.Row="1" Grid.Column="0"
+                Margin="6,0,6,8"
+                VerticalScrollBarVisibility="Default"
+                ItemSizingStrategy="MeasureAllItems"
+                ItemsSource="{Binding AllMovies}" 
+                VerticalOptions="FillAndExpand"
+                Scrolled="OnCollectionViewScrolled">
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Center" 
+                     HorizontalOptions="CenterAndExpand">
+                    <Label Text="No movies found" FontFamily="Arial" FontSize="Medium"
+                           Style="{StaticResource SmallBlueLabelStyle}" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Movie">
+                    <Grid Margin="0" Padding="0,2,0,2"
+                  ColumnDefinitions="*"
+                  RowDefinitions="140"
+                  HorizontalOptions="FillAndExpand"
+                  RowSpacing="{OnPlatform Android='5', iOS='7'}" >
+                        <Border Margin="0" Padding="0" BackgroundColor="White" StrokeThickness="1"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="0,10,0,10" />
+                            </Border.StrokeShape>
+                            <Grid RowDefinitions="*" ColumnDefinitions="100,*" Padding="0">
+                                <Image Grid.Row="0" Grid.Column="0" Aspect="Fill"
+                               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource Uri="{Binding PosterImageUrl}"
+                                                CacheValidity="10:00:00:00"
+                                                CachingEnabled="True" />
+                                    </Image.Source>
+                                </Image>
+                                <VerticalStackLayout Grid.Row="0" Grid.Column="1"
+                                             Spacing="5" Padding="10"
+                                             VerticalOptions="StartAndExpand">
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" FontFamily="Arial"
+                                   FontSize="Medium" TextColor="White"
+                                   Style="{StaticResource SmallBlueLabelStyle}" />
+                                    <Label Text="{Binding ReleaseDateInfo}" TextColor="White" 
+                                    Style="{StaticResource SmallBlueLabelStyle}" />
+                                    <Label Text="{Binding GenersInfo}" TextColor="White"
+                                           LineBreakMode="WordWrap" 
+                                    Style="{StaticResource SmallBlueLabelStyle}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.FilmItemClickCommand, Source={Reference MovieList}}"
+                                              CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="1,0">
+                                    <GradientStop Color="#7CC3B9"
+                                          Offset="0.1" />
+                                    <GradientStop Color="{StaticResource MidnightBlue}"
+                                          Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

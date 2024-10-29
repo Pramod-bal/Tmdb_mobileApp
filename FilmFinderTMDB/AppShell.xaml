@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FilmFinderTMDB.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FilmFinderTMDB.Source.Presentation.TmdbInfo.Page"
+    xmlns:page="clr-namespace:FilmFinderTMDB"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    Title="FilmFinderTMDB">
+
+    <ShellContent
+        Title="TmdbList"
+        ContentTemplate="{DataTemplate local:TmdbListPage}"
+        Route="TmdbListPage" />
+
+     <!--<ShellContent
+        Title="TmdbList"
+        ContentTemplate="{DataTemplate page:MainPage}"
+        Route="TmdbListPage" />-->
+
+</Shell>
+

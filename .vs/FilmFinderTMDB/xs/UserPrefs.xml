@@ -1,0 +1,50 @@
+﻿<Properties StartupConfiguration="{8B85EEEB-1BEF-4569-93FF-F330ADE7C83A}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_4a_-_api_34" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="34.0.113" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FilmFinderTMDB/FilmFinderTMDB.csproj">
+    <Files>
+      <File FileName="FilmFinderTMDB/FilmFinderTMDB.csproj" Line="26" Column="26" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/8.0.401/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="271" Column="49" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FilmFinderTMDB" expanded="True">
+            <Node name="FilmFinderTMDB" expanded="True" selected="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Platforms" expanded="True">
+                <Node name="iOS" expanded="True" />
+              </Node>
+              <Node name="Resources" expanded="True">
+                <Node name="AppIcon" expanded="True" />
+                <Node name="Images" expanded="True" />
+                <Node name="Splash" expanded="True" />
+              </Node>
+              <Node name="Source" expanded="True">
+                <Node name="AppConfiguration" expanded="True" />
+                <Node name="Data" expanded="True">
+                  <Node name="Model" expanded="True" />
+                </Node>
+                <Node name="Presentation" expanded="True">
+                  <Node name="TmdbInfo" expanded="True">
+                    <Node name="Page" expanded="True" />
+                    <Node name="ViewModel" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="Services" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FilmFinderTMDB PreferredExecutionTarget="Android.pixel_4a_-_api_34" />
+  <MultiItemStartupConfigurations />
+</Properties>
